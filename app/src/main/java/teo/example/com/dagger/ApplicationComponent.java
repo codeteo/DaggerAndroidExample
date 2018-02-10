@@ -9,6 +9,7 @@ import dagger.Component;
 import dagger.android.AndroidInjector;
 import dagger.android.support.AndroidSupportInjectionModule;
 import teo.example.com.MyApplication;
+import teo.example.com.dagger.modules.ActivityBindingModule;
 import teo.example.com.dagger.modules.ApplicationModule;
 import teo.example.com.dagger.modules.NetworkModule;
 
@@ -19,6 +20,7 @@ import teo.example.com.dagger.modules.NetworkModule;
 @Singleton
 @Component(modules = {
         AndroidSupportInjectionModule.class,
+        ActivityBindingModule.class,
         ApplicationModule.class,
         NetworkModule.class
 })

@@ -9,6 +9,7 @@ import dagger.Component;
 import dagger.android.AndroidInjector;
 import dagger.android.support.AndroidSupportInjectionModule;
 import teo.example.com.MyApplication;
+import teo.example.com.dagger.modules.ApplicationModule;
 
 /**
  * This ia a Dagger component.
@@ -16,7 +17,8 @@ import teo.example.com.MyApplication;
 
 @Singleton
 @Component(modules = {
-        AndroidSupportInjectionModule.class
+        AndroidSupportInjectionModule.class,
+        ApplicationModule.class
 })
 public interface ApplicationComponent extends AndroidInjector<MyApplication> {
 

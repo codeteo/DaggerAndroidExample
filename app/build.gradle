@@ -1,15 +1,18 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion rootProject.compileSdkVersion
+
     defaultConfig {
         applicationId "teo.example.com"
-        minSdkVersion 21
-        targetSdkVersion 26
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
         versionCode 1
         versionName "1.0"
+
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -20,9 +23,47 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:26.1.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    implementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
+    implementation "com.android.support.constraint:constraint-layout:$rootProject.constraintLayoutVersion"
+
+    // Dagger core
+    annotationProcessor "com.google.dagger:dagger-compiler:$rootProject.daggerVersion"
+    implementation "com.google.dagger:dagger:$rootProject.daggerVersion"
+
+    // Dagger Android
+    annotationProcessor "com.google.dagger:dagger-android-processor:$rootProject.daggerVersion"
+    implementation "com.google.dagger:dagger-android-support:$rootProject.daggerVersion"
+
+    // Networking
+    implementation "com.squareup.okhttp3:okhttp:$rootProject.okHttpClient"
+    implementation "com.google.code.gson:gson:2.8.1"
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:2.2.0"
+    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.okHttpClient"
+
+    // Rx
+    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rxAndroidVersion"
+    implementation "io.reactivex.rxjava2:rxjava:$rootProject.rxJavaVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$rootProject.rxJavaAdapter"
+    implementation "com.jakewharton.rxbinding2:rxbinding:$rootProject.rxBindingsVersion"
+
+    // Utilities
+    implementation 'com.jakewharton.timber:timber:4.5.1'
+    implementation "com.squareup.picasso:picasso:$rootProject.picassoVersion"
+
+    // Dependencies for local unit tests
+    testImplementation "junit:junit:$rootProject.junitVersion"
+    testImplementation "org.mockito:mockito-all:$rootProject.mockitoVersion"
+
+    // Android Testing Support Library's runner and rules
+    androidTestImplementation "com.android.support.test:runner:$rootProject.runnerVersion"
+    androidTestImplementation "com.android.support.test:rules:$rootProject.rulesVersion"
+
+    // Espresso UI Testing
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.espressoVersion"
+    androidTestImplementation "com.android.support.test.espresso:espresso-contrib:$rootProject.espressoVersion"
+    androidTestImplementation "com.android.support.test.espresso:espresso-intents:$rootProject.espressoVersion"
+    androidTestImplementation "com.android.support.test.espresso.idling:idling-concurrent:$rootProject.espressoVersion"
+    implementation "com.android.support.test.espresso:espresso-idling-resource:$rootProject.espressoVersion"
+
 }

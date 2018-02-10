@@ -50,3 +50,6 @@ captures/
 .idea/gradle.xml
 .idea/dictionaries
 .idea/libraries
+
+# keys
+secrets.properties

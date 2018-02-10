@@ -1,5 +1,7 @@
 package teo.example.com.features.main;
 
+import javax.inject.Inject;
+
 /**
  * Listens to user actions from the UI ({@link MainFragment}), retrieves the data and updates the
  * UI as required.
@@ -7,6 +9,7 @@ package teo.example.com.features.main;
 
 public class MainPresenter implements MainMVP.Presenter {
 
+    @Inject
     public MainPresenter() {
     }
 

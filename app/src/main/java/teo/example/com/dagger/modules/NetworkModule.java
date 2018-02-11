@@ -15,6 +15,7 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
+import teo.example.com.data.api.MoviesService;
 import teo.example.com.utils.BaseUrlInterceptor;
 import teo.example.com.utils.schedulers.BaseSchedulerProvider;
 import teo.example.com.utils.schedulers.SchedulerProvider;
@@ -69,6 +70,12 @@ public class NetworkModule {
     @Singleton
     BaseSchedulerProvider baseSchedulerProvider() {
         return SchedulerProvider.getInstance();
+    }
+
+    @Provides
+    @Singleton
+    MoviesService providesMovieService(Retrofit retrofit) {
+        return retrofit.create(MoviesService.class);
     }
 
 }

@@ -21,7 +21,6 @@ public final class PopularMovie {
     private String adult;
     private String overview;
     private String originalLanguage;
-    private String[] genreIds;
     private String releaseDate;
     private String originalTitle;
     private String voteCount;
@@ -85,14 +84,6 @@ public final class PopularMovie {
 
     public void setOriginalLanguage(String originalLanguage) {
         this.originalLanguage = originalLanguage;
-    }
-
-    public String[] getGenreIds() {
-        return genreIds;
-    }
-
-    public void setGenreIds(String[] genreIds) {
-        this.genreIds = genreIds;
     }
 
     public String getReleaseDate() {

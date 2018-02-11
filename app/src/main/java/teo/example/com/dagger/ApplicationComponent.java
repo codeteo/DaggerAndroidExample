@@ -11,6 +11,7 @@ import dagger.android.support.AndroidSupportInjectionModule;
 import teo.example.com.MyApplication;
 import teo.example.com.dagger.modules.ActivityBindingModule;
 import teo.example.com.dagger.modules.ApplicationModule;
+import teo.example.com.dagger.modules.DatabaseModule;
 import teo.example.com.dagger.modules.NetworkModule;
 
 /**
@@ -22,7 +23,8 @@ import teo.example.com.dagger.modules.NetworkModule;
         AndroidSupportInjectionModule.class,
         ActivityBindingModule.class,
         ApplicationModule.class,
-        NetworkModule.class
+        NetworkModule.class,
+        DatabaseModule.class
 })
 public interface ApplicationComponent extends AndroidInjector<MyApplication> {
 

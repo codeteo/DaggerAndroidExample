@@ -12,7 +12,6 @@ import teo.example.com.features.main.MainMVP;
 public class MainRepository implements MainMVP.Model {
 
     private MoviesService service;
-    private
 
     @Inject
     public MainRepository() {

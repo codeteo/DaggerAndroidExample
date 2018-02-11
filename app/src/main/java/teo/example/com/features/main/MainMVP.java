@@ -1,5 +1,8 @@
 package teo.example.com.features.main;
 
+import io.reactivex.Single;
+import teo.example.com.data.repository.main.entities.PopularMovie;
+
 /**
  * Contract class for {@link MainActivity}.
  */
@@ -20,7 +23,7 @@ public interface MainMVP {
 
     interface Model {
 
-        void loadData();
+        Single<PopularMovie> loadData();
 
     }
 

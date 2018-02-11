@@ -9,7 +9,7 @@ import android.support.annotation.NonNull;
  */
 
 @Entity(tableName = "popular")
-public final class PopularMovie {
+public final class PopularMovieEntity {
 
     @PrimaryKey
     @NonNull

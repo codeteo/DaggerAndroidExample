@@ -20,6 +20,6 @@ public class MainPresenter implements MainMVP.Presenter {
 
     @Override
     public void onLoadData() {
-
+        repository.loadData();
     }
 }

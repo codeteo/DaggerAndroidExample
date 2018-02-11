@@ -5,7 +5,7 @@ import android.arch.persistence.room.Query;
 
 import java.util.List;
 
-import teo.example.com.data.database.entities.PopularMovie;
+import teo.example.com.data.database.entities.PopularMovieEntity;
 
 /**
  * Dao class for "popular" movies table.
@@ -20,6 +20,6 @@ public interface PopularDao {
      * @return all popular movies.
      */
     @Query("SELECT * FROM popular")
-    List<PopularMovie> getPopularMovies();
+    List<PopularMovieEntity> getPopularMovies();
 
 }

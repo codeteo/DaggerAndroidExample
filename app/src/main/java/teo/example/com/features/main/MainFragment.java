@@ -35,6 +35,8 @@ public class MainFragment extends DaggerFragment implements MainMVP.View {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         ButterKnife.bind(this, view);
 
+        presenter.onLoadData();
+
         return view;
     }
 

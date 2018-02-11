@@ -4,6 +4,7 @@ package teo.example.com.dagger.modules;
 import android.app.Application;
 import android.content.Context;
 
+import javax.inject.Named;
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -13,6 +14,8 @@ import teo.example.com.Constants;
 import teo.example.com.MyApplication;
 import teo.example.com.data.preferences.SharedPreferencesManagerImpl;
 import teo.example.com.utils.BaseUrlInterceptor;
+
+import static teo.example.com.utils.Qualifiers.API_KEY;
 
 /**
  * Dagger Module with application(singleton) scoped dependencies.
@@ -46,6 +49,13 @@ public class ApplicationModule {
     @Singleton
     static BaseUrlInterceptor providesBaseUrlInterceptor(HttpUrl baseUrl) {
         return new BaseUrlInterceptor(baseUrl.toString());
+    }
+
+    @Provides
+    @Singleton
+    @Named(API_KEY)
+    String providesApiKey() {
+        return Constants.API_KEY;
     }
 
 }

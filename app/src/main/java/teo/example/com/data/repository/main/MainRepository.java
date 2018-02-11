@@ -2,9 +2,10 @@ package teo.example.com.data.repository.main;
 
 import javax.inject.Inject;
 
-import teo.example.com.data.api.MoviesService;
-import teo.example.com.data.database.dao.PopularDao;
+import io.reactivex.Single;
+import teo.example.com.data.repository.main.entities.PopularMovie;
 import teo.example.com.features.main.MainMVP;
+import teo.example.com.utils.schedulers.BaseSchedulerProvider;
 
 /**
  * Concrete implementation to load movies from the data sources.
@@ -12,17 +13,20 @@ import teo.example.com.features.main.MainMVP;
 
 public class MainRepository implements MainMVP.Model {
 
-    private MoviesService service;
-    private PopularDao dao;
+    private MainRemoteDataSource remoteDataSource;
+    private MainLocalDataSource localDataSource;
+    private BaseSchedulerProvider schedulerProvider;
 
     @Inject
-    public MainRepository(MoviesService service, PopularDao dao) {
-        this.service = service;
-        this.dao = dao;
+    MainRepository(MainRemoteDataSource remoteDataSource, MainLocalDataSource localDataSource,
+                   BaseSchedulerProvider schedulerProvider) {
+        this.remoteDataSource = remoteDataSource;
+        this.localDataSource = localDataSource;
+        this.schedulerProvider = schedulerProvider;
     }
 
     @Override
-    public void loadData() {
-
+    public Single<PopularMovie> loadData() {
+        return null;
     }
 }

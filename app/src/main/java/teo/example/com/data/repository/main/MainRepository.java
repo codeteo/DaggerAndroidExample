@@ -2,7 +2,7 @@ package teo.example.com.data.repository.main;
 
 import javax.inject.Inject;
 
-import io.reactivex.Single;
+import io.reactivex.Observable;
 import teo.example.com.data.repository.main.entities.PopularMovie;
 import teo.example.com.features.main.MainMVP;
 import teo.example.com.utils.schedulers.BaseSchedulerProvider;
@@ -26,7 +26,9 @@ public class MainRepository implements MainMVP.Model {
     }
 
     @Override
-    public Single<PopularMovie> loadData() {
-        return null;
+    public Observable<PopularMovie> loadData() {
+        return Observable.concat(localDataSource.loadData(), remoteDataSource.loadData())
+                .subscribeOn(schedulerProvider.io())
+                .observeOn(schedulerProvider.androidMainThread());
     }
 }

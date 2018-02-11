@@ -1,6 +1,6 @@
 package teo.example.com.features.main;
 
-import io.reactivex.Single;
+import io.reactivex.Observable;
 import teo.example.com.data.repository.main.entities.PopularMovie;
 
 /**
@@ -23,7 +23,7 @@ public interface MainMVP {
 
     interface Model {
 
-        Single<PopularMovie> loadData();
+        Observable<PopularMovie> loadData();
 
     }
 

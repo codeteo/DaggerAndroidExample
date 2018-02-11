@@ -2,7 +2,7 @@ package teo.example.com.data.repository.main;
 
 import javax.inject.Inject;
 
-import io.reactivex.Single;
+import io.reactivex.Observable;
 import teo.example.com.data.database.dao.PopularDao;
 import teo.example.com.data.repository.main.entities.PopularMovie;
 import teo.example.com.features.main.MainMVP;
@@ -21,7 +21,7 @@ public class MainLocalDataSource implements MainMVP.Model {
     }
 
     @Override
-    public Single<PopularMovie> loadData() {
+    public Observable<PopularMovie> loadData() {
         return null;
     }
 }

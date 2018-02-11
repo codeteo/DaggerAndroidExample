@@ -3,7 +3,7 @@ package teo.example.com.data.repository.main;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import io.reactivex.Single;
+import io.reactivex.Observable;
 import teo.example.com.data.api.MoviesService;
 import teo.example.com.data.repository.main.entities.PopularMovie;
 import teo.example.com.features.main.MainMVP;
@@ -26,7 +26,7 @@ public class MainRemoteDataSource implements MainMVP.Model {
     }
 
     @Override
-    public Single<PopularMovie> loadData() {
+    public Observable<PopularMovie> loadData() {
         return null;
     }
 }

@@ -14,7 +14,7 @@ public class MainPresenter implements MainMVP.Presenter {
     }
 
     @Override
-    public void loadData() {
+    public void onLoadData() {
 
     }
 }

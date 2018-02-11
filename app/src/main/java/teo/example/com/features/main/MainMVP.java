@@ -14,8 +14,16 @@ public interface MainMVP {
 
     interface Presenter {
 
+        void onLoadData();
+
+    }
+
+    interface Model {
+
         void loadData();
 
     }
+
+
 
 }

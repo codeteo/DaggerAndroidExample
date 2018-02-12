@@ -18,7 +18,7 @@ import teo.example.com.features.main.MainPresenter;
 public abstract class MainActivityModule {
 
     @FragmentScope
-    @ContributesAndroidInjector(modules = MainDataSourceModule.class)
+    @ContributesAndroidInjector(modules = {MainDataSourceModule.class})
     abstract MainFragment providesMainFragment();
 
     @ActivityScope

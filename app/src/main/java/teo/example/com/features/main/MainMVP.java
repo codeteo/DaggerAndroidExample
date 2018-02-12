@@ -1,5 +1,7 @@
 package teo.example.com.features.main;
 
+import java.util.List;
+
 import io.reactivex.Observable;
 import teo.example.com.data.repository.main.entities.PopularMovie;
 
@@ -23,7 +25,7 @@ public interface MainMVP {
 
     interface Model {
 
-        Observable<PopularMovie> loadData();
+        Observable<List<PopularMovie>> loadData();
 
     }
 

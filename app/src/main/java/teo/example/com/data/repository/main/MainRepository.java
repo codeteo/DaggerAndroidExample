@@ -1,5 +1,7 @@
 package teo.example.com.data.repository.main;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import io.reactivex.Observable;
@@ -26,7 +28,7 @@ public class MainRepository implements MainMVP.Model {
     }
 
     @Override
-    public Observable<PopularMovie> loadData() {
+    public Observable<List<PopularMovie>> loadData() {
         return Observable.concat(localDataSource.loadData(), remoteDataSource.loadData())
                 .subscribeOn(schedulerProvider.io())
                 .observeOn(schedulerProvider.androidMainThread());

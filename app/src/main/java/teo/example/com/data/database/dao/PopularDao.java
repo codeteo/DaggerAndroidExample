@@ -5,6 +5,7 @@ import android.arch.persistence.room.Query;
 
 import java.util.List;
 
+import io.reactivex.Flowable;
 import teo.example.com.data.database.entities.PopularMovieEntity;
 
 /**
@@ -20,6 +21,6 @@ public interface PopularDao {
      * @return all popular movies.
      */
     @Query("SELECT * FROM popular")
-    List<PopularMovieEntity> getPopularMovies();
+    Flowable<List<PopularMovieEntity>> getPopularMovies();
 
 }

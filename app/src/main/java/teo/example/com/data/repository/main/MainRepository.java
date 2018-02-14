@@ -6,6 +6,8 @@ import javax.inject.Inject;
 
 import io.reactivex.Observable;
 import teo.example.com.data.repository.main.entities.PopularMovie;
+import teo.example.com.data.repository.main.sources.local.MainLocalDataSource;
+import teo.example.com.data.repository.main.sources.remote.MainRemoteDataSource;
 import teo.example.com.features.main.MainMVP;
 import teo.example.com.utils.schedulers.BaseSchedulerProvider;
 
@@ -29,7 +31,11 @@ public class MainRepository implements MainMVP.Model {
 
     @Override
     public Observable<List<PopularMovie>> loadData() {
-        return Observable.concat(localDataSource.loadData(), remoteDataSource.loadData())
+        return Observable.concat(
+                        localDataSource.loadData(),
+                        remoteDataSource.loadData()
+                            .doOnNext(popularMovies -> localDataSource.saveData(popularMovies))
+                )
                 .subscribeOn(schedulerProvider.io())
                 .observeOn(schedulerProvider.androidMainThread());
     }

@@ -1,4 +1,4 @@
-package teo.example.com.data.repository.main;
+package teo.example.com.data.repository.main.sources.remote;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -13,7 +13,7 @@ import teo.example.com.data.api.MoviesService;
 import teo.example.com.data.api.entities.MoviesNestedItemResultsResponse;
 import teo.example.com.data.api.entities.MoviesResponse;
 import teo.example.com.data.repository.main.entities.PopularMovie;
-import teo.example.com.features.main.MainMVP;
+import teo.example.com.data.repository.main.sources.MainDataSource;
 import teo.example.com.features.main.utils.PopularMovieMapper;
 
 import static teo.example.com.utils.Qualifiers.API_KEY;
@@ -22,7 +22,7 @@ import static teo.example.com.utils.Qualifiers.API_KEY;
  * Implementation of a remote data source for popular movies feature.
  */
 
-public class MainRemoteDataSource implements MainMVP.Model {
+public class MainRemoteDataSource implements MainDataSource {
 
     private MoviesService service;
     private String apiKey;
@@ -41,6 +41,11 @@ public class MainRemoteDataSource implements MainMVP.Model {
         return service.getMostPopular(apiKey)
                 .map(this::movieMapper)
                 .toObservable();
+    }
+
+    @Override
+    public void saveData(List<PopularMovie> movies) {
+
     }
 
     private List<PopularMovie> movieMapper(Response<MoviesResponse> response) {

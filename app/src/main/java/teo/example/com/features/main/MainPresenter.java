@@ -1,8 +1,11 @@
 package teo.example.com.features.main;
 
+import android.util.Log;
+
 import javax.inject.Inject;
 
 import teo.example.com.data.repository.main.MainRepository;
+import timber.log.Timber;
 
 /**
  * Listens to user actions from the UI ({@link MainFragment}), retrieves the data and updates the
@@ -20,6 +23,9 @@ public class MainPresenter implements MainMVP.Presenter {
 
     @Override
     public void onLoadData() {
-        repository.loadData();
+        repository.loadData()
+                .subscribe(
+                        movies -> Timber.i("MESA STO MOVIES"),
+                        throwable -> Log.i("MAIN-PRESENTER", "onLoadData "));
     }
 }

@@ -14,7 +14,7 @@ import teo.example.com.data.repository.main.entities.PopularMovie;
 public class PopularMovieEntityMapper implements Mapper<PopularMovieEntity, PopularMovie> {
 
     @Inject
-    public PopularMovieEntityMapper() {
+    PopularMovieEntityMapper() {
     }
 
     @Override
@@ -29,6 +29,9 @@ public class PopularMovieEntityMapper implements Mapper<PopularMovieEntity, Popu
         popularMovie.setTitle(movieEntity.getTitle());
         popularMovie.setVoteAverage(movieEntity.getVoteAverage());
         popularMovie.setVoteCount(movieEntity.getVoteCount());
+        popularMovie.setAdult(movieEntity.getAdult());
+        popularMovie.setOriginalLanguage(movieEntity.getOriginalLanguage());
+        popularMovie.setVideo(movieEntity.getVideo());
 
         return popularMovie;
     }

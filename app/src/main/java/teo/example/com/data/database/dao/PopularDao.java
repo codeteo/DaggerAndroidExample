@@ -1,6 +1,7 @@
 package teo.example.com.data.database.dao;
 
 import android.arch.persistence.room.Dao;
+import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 
 import java.util.List;
@@ -22,5 +23,13 @@ public interface PopularDao {
      */
     @Query("SELECT * FROM popular")
     Flowable<List<PopularMovieEntity>> getPopularMovies();
+
+    /**
+     * Insert list of movies to "popular" table.
+     *
+     * @param movies to be inserted.
+     */
+    @Insert
+    void saveMovies(List<PopularMovieEntity> movies);
 
 }

@@ -29,6 +29,9 @@ public class PopularMovieMapper implements Mapper<MoviesNestedItemResultsRespons
         popularMovie.setTitle(movie.getTitle());
         popularMovie.setVoteAverage(movie.getVoteAverage());
         popularMovie.setVoteCount(movie.getVoteCount());
+        popularMovie.setAdult(movie.getAdult());
+        popularMovie.setOriginalLanguage(movie.getOriginalLanguage());
+        popularMovie.setVideo(movie.getVideo());
 
         return popularMovie;
     }
